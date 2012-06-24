@@ -1,0 +1,534 @@
+data <-read.csv("countHealthUnits.csv")#
+names(data)#
+data[1:10,]
+data[1:5,]
+pal <- colorRampPalette(c("#f2f2f2", "black"))#
+colors <- pal(100)#
+#Cut the map with lat long for Mexico#
+xlim <- c(-117.0, -40.00)#
+ylim <- c(14, 33)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)
+library(maps)#
+library(geosphere)
+library(sp)
+?maps
+?map
+map(database, regions)
+map(world, mexico)
+pal <- colorRampPalette(c("#f2f2f2", "black"))#
+colors <- pal(100)#
+#Cut the map with lat long for Mexico#
+xlim <- c(-117.0, -40.00)#
+ylim <- c(14, 33)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)#
+fsub <- data[data$latdestination <18,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}#
+#
+#Draw the conexions as social media#
+require(igraph)#
+M <- matrix(data)#
+adj=M%*%t(M)
+xlim <- c(-117.0, -420.00)#
+ylim <- c(14, 33)
+xlim <- c(-117.0, -420.00)#
+ylim <- c(14, 33)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)#
+fsub <- data[data$latdestination <18,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}#
+#
+#Draw the conexions as social media#
+require(igraph)#
+M <- matrix(data)#
+adj=M%*%t(M)
+xlim <- c(-117.0, -420.00)#
+ylim <- c(14, 33)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)#
+fsub <- data[data$latdestination <18,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}
+Draw map for north east#
+pal <- colorRampPalette(c("#f2f2f2", "black"))#
+colors <- pal(100)#
+#Cut the map with lat long for Mexico#
+xlim <- c(-117.0, -420.00)#
+ylim <- c(14, 33)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)#
+fsub <- data[data$latdestination <18,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}
+pal <- colorRampPalette(c("#f2f2f2", "black"))#
+colors <- pal(100)#
+#Cut the map with lat long for Mexico#
+xlim <- c(-117.0, -20.00)#
+ylim <- c(14, 33)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)#
+fsub <- data[data$latdestination <18,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}
+xlim <- c(-117.0, 20.00)#
+ylim <- c(14, 33)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)#
+fsub <- data[data$latdestination <18,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}
+xlim <- c(-117.0, -10.00)#
+ylim <- c(14, 33)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)#
+fsub <- data[data$latdestination <18,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}
+xlim <- c(-117.0, -100.00)#
+ylim <- c(14, 33)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)#
+fsub <- data[data$latdestination <18,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}
+xlim <- c(-117.0, -95.00)#
+ylim <- c(14, 33)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)#
+fsub <- data[data$latdestination <18,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}
+ylim <- c(0, 33)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)#
+fsub <- data[data$latdestination <18,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}
+ylim <- c(40, 33)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)#
+fsub <- data[data$latdestination <18,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}
+ylim <- c(20, 33)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)#
+fsub <- data[data$latdestination <18,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}
+ylim <- c(14, 50)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)#
+fsub <- data[data$latdestination <18,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}
+ylim <- c(14, 33)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)#
+fsub <- data[data$latdestination <18,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}
+Draw map for north east#
+pal <- colorRampPalette(c("#f2f2f2", "black"))#
+colors <- pal(100)#
+#Cut the map with lat long for Mexico#
+xlim <- c(-117.0, -85.00)#
+ylim <- c(14, 33)#
+map("world", col="#f2f2f2", fill=TRUE, bg="white", lwd=0.05, xlim=xlim, ylim=ylim)#
+fsub <- data[data$latdestination <18,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}
+fsub <- data[data$latdestination !=0,]#
+fsub[1:10,]#
+length(fsub$obsDestination)#
+fsub <- fsub[order(fsub$obsDestination),]#
+maxObsSource <- max(fsub$obsDestination)#
+for (j in 1:length(fsub$obsDestination)) {#
+	source <- data[data$source == fsub[j,]$source,]#
+	destination <- data[data$destination == fsub[j,]$destination,]#
+#
+	inter <- gcIntermediate(c(source[1,]$lonsource, source[1,]$latsource), c(destination[1,]$londestination, destination[1,]$latdestination), n=100, addStartEnd=TRUE)#
+	colindex <- round((fsub[j,]$obsDestination / maxObsSource) * length(colors))#
+	lines(inter, col=colors[colindex], lwd=0.8)#
+}
+data <- read.csv("homicides1990-2010.csv")
+names(data)
+qroo <-if data$StateAbbrev ="Qro"
+qroo <-data[data$StateAbbrev ="Qro",]
+qroo <- data[data$StateAbbrev =="Qro",]
+qroo[1:10]
+qroo[1:10,]
+data <-read.csv("countHealthUnits.csv")#
+names(data)#
+data[1:5,]
+x =table(data$source, data$destination)>0
+refnet <-graph.adjacency(x, diag=FALSE)
+x
+x[1:10]
+x[1:10,]
+refneighborhood <-graph.neighborhood(x, order1,...)
+refneighborhood <-graph.neighborhood(x, order1,)
+refneighborhood <-graph.neighborhood(data$destination, order=1)
+refnet <-graph.adjacency(x, diag=FALSE)
+x[10:20,]
+names(data)#
+data[1:5,]
+data2 <-read.csv("socialHospitals.csv")
+x =table(data2$source, data2$destination)>0
+x[10:20,]
+refnet2 <-graph.adjacency(x, diag=FALSE)
+refnet <- graph.edgelist(as.matrix(data2[data2$destinations>0,1:2]), directed=FALSE)
+plot(refnet)
+plot(refnet, layout=layout.fruchterman.reingold,vertex.label=NA, vertex.size=3) # more pretty than useful)
+?textir
+textir?
+?textir
+hotdogs <- read.csv("http://datasets.flowingdata.com/hot-dog-contest-winners.csv", sep",", header="TRUE")
+hotdogs <- read.csv("http://datasets.flowingdata.com/hot-dog-contest-winners.csv", sep=",", header="TRUE")
+hotdogs <- read.csv("http://datasets.flowingdata.com/hot-dog-contest-winners.csv", sep=",", header=TRUE)
+names(hotdogs)
+barplot(hotdogs$Dogs.eaten)
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year)
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="red", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+library(colorbrewer)
+display.brewer.all(n=3,type="seq",exact.n=TRUE)#
+title("Sequential Color Combinations: 3 Colors per Combination")
+display.brewer.all(n=9,type="seq",exact.n=TRUE)#
+title("Sequential Color Combinations: 9 Colors per Combination")
+title("Sequential Color Combinations: 9 Colors per Combination")# convert R colors into RGB triplets;#
+col2rgb( brewer.pal("Accent", n=5) )
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="ff9900", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="FF9900", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="FF6600", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=FF9999
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="FF9999", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="red", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#FF9999", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#660000", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#0xEFF3FF", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#0XEFF3FF", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="Accent, border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="Accent", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="red", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="maroon", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="blue", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="navyblue", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="royalblue", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="navyblue", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+display.brewer.all(n=3,type="seq",exact.n=TRUE)#
+title("Sequential Color Combinations: 3 Colors per Combination")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="Blues", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+display.brewer.all(n=3,type="seq",exact.n=TRUE)#
+title("Sequential Color Combinations: 3 Colors per Combination")
+display.brewer.all(n=5,type="seq",exact.n=TRUE)#
+title("Sequential Color Combinations: 9 Colors per Combination")# convert R colors into RGB triplets;
+display.brewer.all(n=5,type="seq",exact.n=TRUE)#
+title("Sequential Color Combinations: 9 Colors per Combination")# convert R colors into RGB triplets;#
+col2rgb( brewer.pal("Accent", n=5) )
+display.brewer.all(n=5,type="seq",exact.n=TRUE)#
+title("Sequential Color Combinations: 5 Colors per Combination")
+col2rgb( brewer.pal("Accent", n=5) )
+display.brewer.pal(7,"Accent")#
+Sys.sleep(2)
+brewer.pal.infor
+brewer.pal.info
+brewer.pal.info["Blues",]
+brewer.pal.info["Blues",]$maxcolors
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="navyblue", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+?colour
+?color
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="00366", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="003366", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#003366", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#BDD7E7", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#EFF3FF", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#08519C", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#6BAED6", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#3182BD", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#9ECAE1", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#DEEBF7", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#3182BD", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+3182BD
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#BDD7E7", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#6BAED6", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+fillColors <- c()#
+for (i in 1: length(hotdogs$Country)){#
+	if (hotdogs$Country[i] == 'United States') {#
+		fill_Colors <- c(fill_colors, '#EFF3FF')#
+	} else {#
+		fill_Colors <- c(fill_Colors, '#6BAED6')#
+	}#
+}
+fillColors <- c()#
+for (i in 1: length(hotdogs$Country)){#
+	if (hotdogs$Country[i] == 'United States') {#
+		fill_Colors <- c(fill_Colors, '#EFF3FF')#
+	} else {#
+		fill_Colors <- c(fill_Colors, '#6BAED6')#
+	}#
+}
+fillColors <- c()#
+for (i in 1: length(hotdogs$Country)){#
+	if (hotdogs$Country[i] == 'United States') {#
+		fillColors <- c(fill_Colors, '#EFF3FF')#
+	} else {#
+		fillColors <- c(fill_Colors, '#6BAED6')#
+	}#
+}
+fillColors <- c()#
+for (i in 1: length(hotdogs$Country)){#
+	if (hotdogs$Country[i] == 'United States') {#
+		fillColors <- c(fillColors, '#EFF3FF')#
+	} else {#
+		fillColors <- c(fillColors, '#6BAED6')#
+	}#
+}
+fillColors
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+for (i in 1: length(hotdogs$Country)){#
+	if (hotdogs$Country[i] == 'United States') {#
+		fillColors <- c(fillColors, '#EFF3FF')#
+	} else {#
+		fillColors <- c(fillColors, '#ccccc')#
+	}#
+}#
+#
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+fillColors <- c()#
+for (i in 1: length(hotdogs$Country)){#
+	if (hotdogs$Country[i] == 'United States') {#
+		fillColors <- c(fillColors, '#EFF3FF')#
+	} else {#
+		fillColors <- c(fillColors, '#cccccc')#
+	}#
+}#
+#
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#6BAED6", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#EFF3FF", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+EFF3FF
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#9ECAE1", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+9ECAE1
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#3182BD", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+for (i in 1: length(hotdogs$Country)){#
+	if (hotdogs$Country[i] == 'United States') {#
+		fillColors <- c(fillColors, '#cccccc')#
+	} else {#
+		fillColors <- c(fillColors, '#3182BD')#
+	}#
+}#
+#
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+for (i in 1: length(hotdogs$Country)){#
+	if (hotdogs$Country[i] == 'United States') {#
+		fillColors <- c(fillColors, '#9ECAE1')#
+	} else {#
+		fillColors <- c(fillColors, '#3182BD ')#
+	}#
+}#
+#
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+fillColors <- c()#
+for (i in 1: length(hotdogs$Country)){#
+	if (hotdogs$Country[i] == 'United States') {#
+		fillColors <- c(fillColors, '#3182BD')#
+	} else {#
+		fillColors <- c(fillColors, '#DEEBF7 ')#
+	}#
+}#
+#
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+fillColors <- c()#
+for (i in 1: length(hotdogs$Country)){#
+	if (hotdogs$Country[i] == 'United States') {#
+		fillColors <- c(fillColors, '3182BD')#
+	} else {#
+		fillColors <- c(fillColors, 'DEEBF7 ')#
+	}#
+}#
+#
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col="#3182BD", border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+fillColors <- c()#
+for (i in 1: length(hotdogs$Country)){#
+	if (hotdogs$Country[i] == 'United States') {#
+		fillColors <- c(fillColors, "#3182BD")#
+	} else {#
+		fillColors <- c(fillColors, '#DEEBF7')#
+	}#
+}#
+#
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+fillColors <- c()#
+for (i in 1: length(hotdogs$Country)){#
+	if (hotdogs$Country[i] == 'United States') {#
+		fillColors <- c(fillColors, "#3182BD")#
+	} else {#
+		fillColors <- c(fillColors, '#9ECAE1')#
+	}#
+}#
+#
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, space=0.3, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, space=1, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, space=0.3, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, space=0.01, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, space=0.02, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, space=0.1, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, space=0.2, xlab="Year", ylab="Hot dogs and buns (HDB) eaten")
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, space=0.2, xlab="Year", ylab="Hot dogs and buns (HDB) eaten", title="Hotdog eating contest")
+?barplot
+barplot(hotdogs$Dogs.eaten, names.arg=hotdogs$Year, col=fillColors, border=NA, space=0.2, xlab="Year", ylab="Hot dogs and buns (HDB) eaten", main="Hotdog eating contest")
+dev.off()?
+?dev.off()
+data <- read.delim("afluencia.txt")
+names(data)
+data[1:10]
+data[,1:10]
+data[,1]
+data[10,]
+data()
+data[1:10]
+data[1,]
+data[,1]
+plot(data$linea data$estacion)
+plot(data$linea, data$estacion)
